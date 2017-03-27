@@ -1,1 +1,1 @@
-#JavaScript 设计模式 阅读笔记
+# JavaScript 设计模式 阅读笔记
