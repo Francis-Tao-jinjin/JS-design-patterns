@@ -50,7 +50,23 @@ F.define('string', function() {
   }
 });
 
-
+// 对于
+F.define('dom', function() {
+  var $ = function(id) {
+    $.dom = document.getElementById(id);
+    return $;
+  }
+  // 获取或设置元素内容
+  $.html = function(html) {
+    // 如果传参则设置元素内容，否则获取元素内容
+    if(html) {
+      this.dom.innerHTML = html;
+      return this;
+    } else {
+      return this.dom.innerHTML;
+    }
+  }
+}) 
 
 
 
