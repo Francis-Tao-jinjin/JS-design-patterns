@@ -51,7 +51,6 @@ F.define('string', function() {
   }
 });
 
-
 F.define('dom', function() {
   // 简化获取元素方法
   var $ = function(id) {
@@ -92,14 +91,16 @@ F.module = function() {
   var modules = [],
       //  模块路由
       modIDs = '',
-      // 以来模块索引
+      // 依赖模块索引
       i=0;
       // 依赖模块长度
   var ilen=parts.length,
       // 父模块，模块路由层级索引，模块路由层级长度
       parent, j, jlen;
   // 遍历依赖模块
-  while(i<len) {
+  console.log('inside module, parts:', parts);
+  while(i<ilen) {
+    console.log('parts[',i,'] = ',parts[i]);
     // 如果是模块路由
     if(typeof parts[i] === 'string') {
       // 设置当前模块父对象（F）
@@ -112,6 +113,7 @@ F.module = function() {
         parent = parent[modIDs[j]] || false;
       }
       // 将模块添加到依赖模块列表中
+      console.log('parent is', parent);
       modules.push(parent);
     // 如果是模块对象
     } else {
